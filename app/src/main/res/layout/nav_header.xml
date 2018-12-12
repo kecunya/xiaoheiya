@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/girl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:hint="个性签名"
+        android:textColorHint="@color/colorAccent"
+        android:text="我们都梦想着天边奇妙玫瑰园，而不去欣赏开在窗口的玫瑰花。"
+        android:textColor="#000"
+        android:background="@null"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="left|center"
+            android:text="小黑呀！"
+            android:layout_marginTop="35dp"
+            android:textColor="#fff"
+            android:textSize="28sp"
+            android:layout_toRightOf="@+id/icon_image"
+            android:layout_toEndOf="@+id/icon_image" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/icon_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/icon_header"
+            android:layout_above="@+id/mail"
+            android:layout_marginTop="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</RelativeLayout>

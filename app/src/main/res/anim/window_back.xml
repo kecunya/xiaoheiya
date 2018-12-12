@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false">
+    <translate
+        android:duration="1000"
+        android:fromYDelta="0"
+        android:toYDelta="50%p" />
+    <alpha
+        android:duration="1000"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0" />
+</set>
+    <!--位移动画-->
+    <!--fromYDelta,toYDelta:Y轴动画的起始位置和结束位置，如果是%则是以自己为参照，如果是%p则是以父控件为参照-->
+    <!--<translate-->
+    <!--android:duration="1000"-->
+    <!--android:fromYDelta="0"-->
+    <!--android:toYDelta="100%" />-->
+    <!--透明度动画:fromAlpha,toAlpha-->
+    <!--<alpha-->
+    <!--android:duration="1000"-->
+    <!--android:fromAlpha="0.0"-->
+    <!--android:toAlpha="1.0" />-->
+

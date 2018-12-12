@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.listviewtest"
+    android:sharedUserId="com.dream">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/mlogo"
+        android:label="小黑呀"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat">
+        <activity android:name=".splashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:label="对话"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".MainActivity"
+            android:label=""
+            android:theme="@style/ActivityTheme"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".webview"
+            android:label="微博"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MainActivityTheme" />
+        <activity
+            android:name=".weather"
+            android:label="天气"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MainActivityTheme" />
+        <activity
+            android:name=".register"
+            android:label="注册" />
+        <activity
+            android:name=".clause"
+            android:label="服务条款"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MainActivityTheme" />
+        <activity
+            android:name=".means"
+            android:label="个人资料"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MainActivityTheme" />
+        <activity
+            android:name=".trends"
+            android:label="空间"
+            android:parentActivityName=".MainActivity">
+            <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.example.ListViewTest.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+                <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths" />
+            </provider>
+        </activity>
+        <activity android:name=".Notification" />
+        <activity
+            android:name=".Image"
+            android:label="图片"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Music"
+            android:label="音乐"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MainActivityTheme">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STOARGE" />
+        </activity>
+        <activity
+            android:name=".shopping"
+            android:label="购物"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".reader"
+            android:label="阅读"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Register"
+            android:label="用户注册"
+            android:theme="@style/MainActivityTheme" />
+        <activity
+            android:name=".Resetpwd"
+            android:label="密码修改"
+            android:theme="@style/MainActivityTheme" />
+        <activity
+            android:name=".Login"
+            android:label=""
+            android:theme="@style/ActivityTheme" />
+
+        <receiver
+            android:name=".BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.listviewtest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".contacts"
+            android:label="通讯录好友" />
+        <service
+            android:name=".DownloadService"
+            android:enabled="true"
+            android:exported="true"/>
+    </application>
+
+</manifest>

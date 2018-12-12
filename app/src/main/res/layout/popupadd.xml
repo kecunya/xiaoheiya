@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/Dark">
+<LinearLayout
+    android:layout_width="260dp"
+    android:layout_height="200dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18dp"
+        android:gravity="left|center"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000"
+        android:text="添加好友"/>
+    <EditText
+        android:id="@+id/ed_addac"
+        android:layout_width="230dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:hint="请输入账号"
+        android:background="#fff"/>
+
+    <Button
+        android:id="@+id/addfriend"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/buttonstyle"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="18dp"
+        android:textSize="20dp"
+        android:text="添加"/>
+
+    <Button
+        android:id="@+id/contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimary"
+        android:background="#00000000"
+        android:textSize="15dp"
+        android:text="（是否访问通讯录?）"/>
+</LinearLayout>
+</LinearLayout>

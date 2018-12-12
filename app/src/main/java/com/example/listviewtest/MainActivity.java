@@ -519,7 +519,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     mDrawerLayout.openDrawer(GravityCompat.START);
                     break;
                 case R.id.weather:
-                    Intent intent = new Intent(MainActivity.this, weather.class);
+                    Intent intent = new Intent(MainActivity.this, KeepWeather.class);
                     PendingIntent pi = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
                     NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                     Notification notification = new NotificationCompat.Builder(this)
@@ -537,12 +537,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                             .setAutoCancel(true)
                             .build();
                     manager.notify(1, notification);
-                    Intent intent2 = new Intent(MainActivity.this, weather.class);
+                    Intent intent2 = new Intent(MainActivity.this, KeepWeather.class);
                     startActivity(intent2);
                     Toast.makeText(MainActivity.this, "看下通知栏吧。", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.login:
-                    String url = "https://share.weiyun.com/5ZBEbR7";
+                    String url = "https://github.com/kecunya/xiaoheiya/blob/master/app-release.apk";
                     downloadBinder.startDownload(url);
                     break;
                 case R.id.web_view:

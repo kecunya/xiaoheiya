@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="180dp"
+    android:background="@drawable/popup">
+    <TextView
+        android:id="@+id/weather_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="    因和风气修改了天气数据格式，导致此功能只能刷新第一次数据，
+                     正在修复中..."/>
+    <Button
+        android:id="@+id/weather_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weather_note"
+        android:textColor="@color/main"
+        android:background="#11000000"
+        android:textSize="20dp"
+        android:text="确定"/>
+</RelativeLayout>

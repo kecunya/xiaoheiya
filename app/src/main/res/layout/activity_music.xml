@@ -50,5 +50,11 @@
         android:textColor="#fff"
         android:textSize="20dp"
         android:text="停止" />
-
+    <TextView
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="(在SD卡根目录放置一个名为music的mp3文件)"
+        android:textSize="15dp"
+        android:textColor="@color/yellow"/>
 </LinearLayout>

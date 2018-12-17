@@ -3,7 +3,7 @@
     android:orientation="horizontal"
     android:layout_width="180dp"
     android:layout_height="50dp"
-    android:background="#fff"
+    android:background="@drawable/popup"
     android:layout_below="@id/toolbar">
     <ImageView
         android:layout_width="30dp"

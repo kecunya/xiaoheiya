@@ -13,7 +13,7 @@
         android:background="@color/main">
 
         <TextView
-            android:id="@+id/title_text"
+            android:id="@+id/title_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -21,7 +21,7 @@
             android:textSize="20sp"/>
 
         <Button
-            android:id="@+id/back_button"
+            android:id="@+id/back_weather"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="10dp"

@@ -82,6 +82,7 @@ import java.util.List;
 import java.util.Random;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.R.attr.cacheColorHint;
 import static android.R.attr.label;
 import static com.example.listviewtest.R.id.TP4;
 import static com.example.listviewtest.R.layout.activity_music;
@@ -89,6 +90,7 @@ import static com.example.listviewtest.R.layout.listview;
 import static com.example.listviewtest.R.layout.popup;
 import static com.example.listviewtest.R.layout.popupadd;
 import static com.example.listviewtest.R.layout.popupm;
+import static com.example.listviewtest.R.layout.popupweather;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private DrawerLayout mDrawerLayout;
@@ -537,8 +539,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                             .setAutoCancel(true)
                             .build();
                     manager.notify(1, notification);
-                    Intent intent2 = new Intent(MainActivity.this, KeepWeather.class);
-                    startActivity(intent2);
+                    ShowWeatherPopup();
                     Toast.makeText(MainActivity.this, "看下通知栏吧。", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.login:
@@ -552,8 +553,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 case R.id.updata:
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                     builder1.setTitle("更新日志");
-                    builder1.setMessage("此次更新更换了主界面的部分布局，定制了每个tab的toolbar，" +
-                            "加入了有意思的夜间模式和长按头像切换账号功能，优化了过度动画和美化了部分布局！");
+                    builder1.setMessage("此次更新大幅优化了APP的体积，美化了Popup的布局和暂时关闭了一些功能.");
                     builder1.setNegativeButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -565,8 +565,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     break;
                 default:
             }
-           return true;
+            return true;
         }
+
     public void onRequestPermissionsResult(int requestCode,String[] permissions,
                                           int[] grantResults){
         switch (requestCode){
@@ -672,8 +673,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 case R.id.button:
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                     builder1.setTitle("关于");
-                    builder1.setMessage("此软件完全出于热爱，" +
-                            "历经48天，期间大大小小修改了172个版本，现基本框架已大致完成！");
+                    builder1.setMessage("此项目是个开源项目，\n"+
+                            "已经上传到github上：https://github.com/kecunya/xiaoheiya\n" +
+                            "有问题可以联系作者：1309750283@qq.com！");
                     builder1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -729,7 +731,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     sendBroadcast(intent9);
                     break;
                 case R.id.TP4:
-                    cl.setBackground(getResources().getDrawable(R.drawable.bg_main));
+                    Toast.makeText(MainActivity.this,"因有几率让APP无响应暂时关闭此功能.",Toast.LENGTH_LONG).show();
                     mpopuowindow.dismiss();
                     break;
                 case R.id.flo:
@@ -828,6 +830,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     Intent intent12=new Intent(MainActivity.this,contacts.class);
                     startActivity(intent12);
                     break;
+                case R.id.weather_in:
+                    Intent intent14 = new Intent(MainActivity.this, KeepWeather.class);
+                    startActivity(intent14);
                 default:
                     break;
             }
@@ -913,6 +918,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
     private void showtab(View view) {
        view=View.inflate(getApplicationContext(),R.layout.tab,null);
+    }
+    private void ShowWeatherPopup() {
+        View contentView = LayoutInflater.from(MainActivity.this).inflate(popupweather, null);
+        menupopup = new PopupWindow(contentView,
+                DrawerLayout.LayoutParams.WRAP_CONTENT, DrawerLayout.LayoutParams.WRAP_CONTENT, true);
+        menupopup.setContentView(contentView);
+        menupopup.setAnimationStyle(R.style.popupwindow);
+        View rootview = LayoutInflater.from(MainActivity.this).inflate(popupweather, null);
+        menupopup.showAtLocation(rootview, Gravity.CENTER,0,0);
+        WindowManager.LayoutParams mp=getWindow().getAttributes();
+        mp.alpha= (float) 0.7;
+        getWindow().setAttributes(mp);
+        menupopup.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams mp=getWindow().getAttributes();
+                mp.alpha= (float) 1;
+                getWindow().setAttributes(mp);
+            }
+        });
+        Button weatherin=(Button) contentView.findViewById(R.id.weather_in);
+        weatherin.setOnClickListener(this);
     }
     public void save(String inputText){
         FileOutputStream out=null;

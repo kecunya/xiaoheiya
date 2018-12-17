@@ -193,8 +193,7 @@ public class Login extends AppCompatActivity {
         if (isfer){
             AlertDialog.Builder builder1 = new AlertDialog.Builder(Login.this);
             builder1.setTitle("更新日志");
-            builder1.setMessage("此次更新更换了主界面的部分布局，定制了每个tab的toolbar， " +
-                    "加入了有意思的夜间模式和长按头像切换账号功能，优化了过度动画和美化了部分布局！");
+            builder1.setMessage("此次更新大幅优化了APP的体积，美化了Popup的布局和暂时关闭了一些功能.");
             builder1.setNegativeButton("确定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -206,6 +205,8 @@ public class Login extends AppCompatActivity {
             editor.putBoolean("isfer",false);
             editor.commit();
         }else {
+            Intent intent=new Intent(Login.this,MainActivity.class);
+            startActivity(intent);
             Toast.makeText(Login.this,"欢迎回来",Toast.LENGTH_SHORT).show();
         }
     }

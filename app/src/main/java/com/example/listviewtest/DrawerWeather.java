@@ -1,17 +1,14 @@
 package com.example.listviewtest;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class KeepWeather extends AppCompatActivity {
+public class DrawerWeather extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +22,6 @@ public class KeepWeather extends AppCompatActivity {
             window.setNavigationBarColor(Color.TRANSPARENT);
             requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         }
-        setContentView(R.layout.activity_keep_weather);
-        SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
-        if (preferences.getString("weather",null)!=null){
-            Intent intent=new Intent(KeepWeather.this,weather.class);
-            startActivity(intent);
-            finish();
-        }
+        setContentView(R.layout.activity_drawer_weather);
     }
 }

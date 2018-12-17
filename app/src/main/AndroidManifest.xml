@@ -49,8 +49,8 @@
         <activity
             android:name=".weather"
             android:label="天气"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/MainActivityTheme" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".register"
             android:label="注册" />
@@ -139,8 +139,11 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".KeepWeather"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".KeepWeather"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".DrawerWeather"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" ></activity>
     </application>
 
 </manifest>
